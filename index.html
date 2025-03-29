@@ -3,189 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社Sosina - 月額5,000円のWebアプリケーション開発</title>
-    <meta name="description" content="株式会社Sosinaは、月額5,000円でカスタマイズされたWebアプリケーションを提供しています。無料相談、3営業日以内納品、2週間試用期間。">
+    <title>株式会社Sosina - あなただけのWEBアプリケーション</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Google FontsのNoto Sans JPを使用 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Noto Sans JP（日本語フォント）を使用 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- ヘッダー -->
-    <header class="header">
+    <!-- ヘッダーセクション -->
+    <header id="header">
         <div class="container">
-            <div class="header-content">
-                <!-- ロゴエリア -->
-                <div class="logo">
-                    <!-- ここに会社ロゴを設置。src属性を実際のロゴファイルパスに変更してください -->
-                    <img src="sosina-logo.svg" alt="株式会社Sosina" id="company-logo">
-                </div>
-                
-                <!-- ナビゲーション -->
-                <nav class="nav">
-                    <ul class="nav-links">
-                        <li><a href="#service">サービス</a></li>
-                        <li><a href="#features">特徴</a></li>
-                        <li><a href="#flow">ご利用の流れ</a></li>
-                        <li><a href="#contact" class="btn btn-primary">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-                
-                <!-- モバイルメニューボタン -->
-                <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <div class="logo-container">
+                <img src="sosina_logo.png" alt="Sosinaロゴ" class="logo">
             </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#features">特徴</a></li>
+                    <li><a href="#process">ご利用の流れ</a></li>
+                    <li><a href="#contact" class="contact-btn">お問い合わせ</a></li>
+                </ul>
+                <button class="menu-btn" id="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
         </div>
     </header>
 
     <!-- ヒーローセクション -->
-    <section class="hero">
+    <section id="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>月額<span class="accent">5,000円</span>で<br>あなただけのWebアプリ</h1>
-                <p class="lead">従来のシステム開発より安価に、スピーディーに、<br class="pc-only">あなたのビジネスに最適なシステムを提供します。</p>
-                <a href="#contact" class="btn btn-primary btn-large">無料相談はこちら</a>
+                <h1>あなただけの<br><span class="highlight">WEBアプリケーション</span></h1>
+                <p>ビジネスの課題を解決する、あなただけのWebアプリケーションを<br>素早く、リーズナブルに提供します。</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="primary-btn">無料相談を申し込む</a>
+                    <a href="#services" class="secondary-btn">サービスを見る</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- サービス概要セクション -->
-    <section id="service" class="section service-section">
+    <!-- サービスセクション -->
+    <section id="services">
         <div class="container">
-            <h2 class="section-title">サービス概要</h2>
-            <div class="service-overview">
-                <p>株式会社Sosinaは、月額5,000円という低コストで、お客様のビジネスに合わせたカスタムWebアプリケーションを提供しています。従来の受託開発では高額な初期費用と長い開発期間が必要でしたが、当社のサービスを利用すれば、迅速かつリーズナブルにビジネス課題を解決するシステムを手に入れることができます。</p>
-                <div class="note-box">
-                    <p><i class="fas fa-info-circle"></i> Webアプリケーションのご利用には、Googleアカウントが必要です。</p>
+            <h2 class="section-title">サービス内容</h2>
+            <div class="service-highlight">
+                <div class="price-tag">
+                    <h3>月額<span class="highlight">5,000</span>円</h3>
+                    <p>初期費用なし・最低利用期間なし</p>
+                </div>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>無料相談</h3>
+                    <p>お客様の要件を丁寧にヒアリングし、最適な提案をいたします。</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>3営業日以内に納品</h3>
+                    <p>スピーディーな開発で、すぐにビジネスに活用できます。</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>試用期間2週間</h3>
+                    <p>実際に使ってみて、ご要望に応じた調整が可能です。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 特徴セクション -->
-    <section id="features" class="section features-section">
+    <section id="features">
         <div class="container">
-            <h2 class="section-title">サービスの特徴</h2>
-            <div class="features-grid">
-                <div class="feature-card">
+            <h2 class="section-title">Sosinaの特徴</h2>
+            <div class="features-container">
+                <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-wallet"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>月額5,000円</h3>
-                    <p>従来の開発と比較して大幅に低コスト。初期費用0円で、月額5,000円からご利用いただけます。</p>
+                    <div class="feature-content">
+                        <h3>スピード重視</h3>
+                        <p>従来の開発よりもスピーディーに。最短3営業日でのWEBアプリケーション提供を実現します。</p>
+                    </div>
                 </div>
-                <div class="feature-card">
+                <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <h3>3営業日以内に納品</h3>
-                    <p>ご要望をヒアリング後、最短3営業日でアプリを納品。スピーディーに業務効率化を実現します。</p>
+                    <div class="feature-content">
+                        <h3>コスト削減</h3>
+                        <p>高額な初期費用なし。月額5,000円からの利用で、コストを大幅に削減できます。</p>
+                    </div>
                 </div>
-                <div class="feature-card">
+                <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-calendar-check"></i>
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <h3>2週間の試用期間</h3>
-                    <p>納品後2週間は無料で試用可能。使い勝手を確認した上でご契約いただけます。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-comments"></i>
+                    <div class="feature-content">
+                        <h3>カスタマイズ自在</h3>
+                        <p>お客様のビジネスに合わせた、オーダーメイドのWEBアプリケーションを提供します。</p>
                     </div>
-                    <h3>無料相談で要件定義</h3>
-                    <p>専門スタッフが無料でご相談に対応。ビジネス課題を解決するための最適な提案をいたします。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ご利用の流れセクション -->
-    <section id="flow" class="section flow-section">
+    <section id="process">
         <div class="container">
             <h2 class="section-title">ご利用の流れ</h2>
-            <div class="flow-timeline">
-                <div class="flow-item">
-                    <div class="flow-number">1</div>
-                    <div class="flow-content">
-                        <h3>無料相談</h3>
-                        <p>お問い合わせフォームよりご連絡ください。専門スタッフがビジネス課題や要件をヒアリングします。</p>
-                    </div>
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>無料相談</h3>
+                    <p>お客様のご要望をヒアリングし、最適なWEBアプリケーションをご提案します。</p>
                 </div>
-                <div class="flow-item">
-                    <div class="flow-number">2</div>
-                    <div class="flow-content">
-                        <h3>要件定義</h3>
-                        <p>ヒアリング内容をもとに、最適なWebアプリケーションの要件を定義します。</p>
-                    </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>開発・納品</h3>
+                    <p>3営業日以内に、ご要望に沿ったWEBアプリケーションを開発・納品いたします。</p>
                 </div>
-                <div class="flow-item">
-                    <div class="flow-number">3</div>
-                    <div class="flow-content">
-                        <h3>開発・納品</h3>
-                        <p>要件定義から3営業日以内に、カスタマイズされたWebアプリケーションを納品します。</p>
-                    </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>試用期間</h3>
+                    <p>2週間の試用期間中に、必要に応じて調整・改善を行います。</p>
                 </div>
-                <div class="flow-item">
-                    <div class="flow-number">4</div>
-                    <div class="flow-content">
-                        <h3>試用期間</h3>
-                        <p>2週間の無料試用期間中に、実際に使用感を確かめていただけます。</p>
-                    </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>ご利用開始</h3>
+                    <p>月額5,000円でWEBアプリケーションを継続的にご利用いただけます。</p>
                 </div>
-                <div class="flow-item">
-                    <div class="flow-number">5</div>
-                    <div class="flow-content">
-                        <h3>ご契約</h3>
-                        <p>試用期間後、ご満足いただけましたら月額5,000円でのご契約となります。</p>
-                    </div>
-                </div>
+            </div>
+            <div class="note-box">
+                <p><i class="fas fa-info-circle"></i> WEBアプリケーションのご利用には<span class="highlight">Googleアカウント</span>が必要です。</p>
             </div>
         </div>
     </section>
 
-    <!-- 問い合わせフォームセクション -->
-    <section id="contact" class="section contact-section">
+    <!-- お問い合わせセクション -->
+    <section id="contact">
         <div class="container">
             <h2 class="section-title">お問い合わせ</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>お気軽にご相談ください</h3>
-                    <p>ビジネスのお悩みやシステム化したい業務など、どんなことでもお聞かせください。無料で相談対応いたします。</p>
+                    <h3>お気軽にご連絡ください</h3>
+                    <p>WEBアプリケーションに関するご質問や、無料相談のお申し込みなど、お気軽にお問い合わせください。</p>
                     <div class="contact-method">
                         <i class="fas fa-envelope"></i>
-                        <span>メール: tsuruta@marutto.jp</span>
+                        <a href="mailto:tsuruta@marutto.jp">tsuruta@marutto.jp</a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- 基本的なmailtoフォーム -->
-                    <form id="contactForm" action="#" method="POST">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">お名前 <span class="required">*</span></label>
                             <input type="text" id="name" name="name" required>
+                            <div class="error-message" id="nameError"></div>
                         </div>
                         <div class="form-group">
                             <label for="email">メールアドレス <span class="required">*</span></label>
                             <input type="email" id="email" name="email" required>
+                            <div class="error-message" id="emailError"></div>
                         </div>
                         <div class="form-group">
-                            <label for="phone">電話番号（任意）</label>
-                            <input type="tel" id="phone" name="phone">
+                            <label for="company">会社名</label>
+                            <input type="text" id="company" name="company">
                         </div>
                         <div class="form-group">
                             <label for="message">お問い合わせ内容 <span class="required">*</span></label>
                             <textarea id="message" name="message" rows="5" required></textarea>
+                            <div class="error-message" id="messageError"></div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-checkbox">
-                                <input type="checkbox" id="privacy" name="privacy" required>
-                                <label for="privacy">プライバシーポリシーに同意する <span class="required">*</span></label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">送信する</button>
+                        <button type="submit" class="primary-btn">送信する</button>
                     </form>
                 </div>
             </div>
@@ -193,65 +188,28 @@
     </section>
 
     <!-- フッター -->
-    <footer class="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <!-- ここにフッターロゴを配置 -->
-                    <img src="sosina-logo.svg" alt="株式会社Sosina" class="footer-logo-img">
+                    <img src="sosina_logo.png" alt="Sosinaロゴ" class="logo">
+                    <p>株式会社Sosina</p>
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#service">サービス</a></li>
+                        <li><a href="#services">サービス</a></li>
                         <li><a href="#features">特徴</a></li>
-                        <li><a href="#flow">ご利用の流れ</a></li>
+                        <li><a href="#process">ご利用の流れ</a></li>
                         <li><a href="#contact">お問い合わせ</a></li>
-                        <li><a href="#" id="privacy-policy-link">プライバシーポリシー</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 株式会社Sosina All Rights Reserved.</p>
+                <p>&copy; 2025 株式会社Sosina. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- プライバシーポリシーモーダル -->
-    <div id="privacy-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>プライバシーポリシー</h2>
-            <div class="privacy-content">
-                <h3>個人情報の取り扱いについて</h3>
-                <p>株式会社Sosina（以下、「当社」）は、お客様の個人情報の重要性を認識し、適切に保護することを社会的責務として考えております。当社は、個人情報に関する法令を遵守し、個人情報を適切かつ安全に取り扱うために、以下のとおりプライバシーポリシーを定めます。</p>
-                
-                <h3>1. 個人情報の収集</h3>
-                <p>当社は、お客様との連絡、サービス提供、および業務上必要な範囲内で、お客様の個人情報を収集いたします。収集する個人情報は、お名前、メールアドレス、電話番号など、お客様が当社に提供した情報に限ります。</p>
-                
-                <h3>2. 個人情報の利用目的</h3>
-                <p>収集した個人情報は、以下の目的のために利用いたします。</p>
-                <ul>
-                    <li>お客様からのお問い合わせへの対応</li>
-                    <li>サービスの提供および改善</li>
-                    <li>新サービスや更新情報のご案内</li>
-                </ul>
-                
-                <h3>3. 個人情報の第三者提供</h3>
-                <p>当社は、法令に基づく場合を除いて、お客様の同意なく個人情報を第三者に提供することはありません。</p>
-                
-                <h3>4. 個人情報の管理</h3>
-                <p>当社は、個人情報の漏洩、紛失、破壊などを防止するために、適切なセキュリティ対策を講じます。</p>
-                
-                <h3>5. 個人情報の開示・訂正・削除</h3>
-                <p>お客様は、ご自身の個人情報の開示、訂正、削除をご希望の場合、当社に対してご請求いただくことができます。</p>
-                
-                <h3>6. プライバシーポリシーの変更</h3>
-                <p>当社は、必要に応じて本プライバシーポリシーを変更することがあります。変更があった場合は、当社ウェブサイト上でお知らせいたします。</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
