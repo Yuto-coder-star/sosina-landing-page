@@ -722,20 +722,21 @@ img {
     grid-template-columns: 1fr;
   }
   
-  /* ロゴサイズの調整 */
+  /* ロゴを画面幅いっぱいに設定（ハンバーガーメニュー用のスペースを確保） */
   .logo {
-    width: 200px; /* スマホ表示時は小さくする */
+    width: calc(100% - 60px);
+    max-width: 280px;
   }
   
   /* ヘッダーの高さを確保 */
   .header-content {
     padding: var(--spacing-sm) 0;
-    min-height: 70px; /* 最低限の高さを確保 */
+    min-height: 70px;
   }
   
-  /* ヒーローセクションのパディングを調整（以前の定義を上書き） */
+  /* ヒーローセクションのパディングを調整 */
   .hero {
-    padding-top: calc(80px + var(--spacing-xl)); /* ヘッダー高さ + 余白 */
+    padding-top: calc(80px + var(--spacing-xl));
   }
 }
 
@@ -757,9 +758,10 @@ img {
     right: 20px;
   }
   
-  /* さらに小さい画面向けのロゴサイズ調整 */
+  /* さらに小さい画面でのロゴサイズ調整 */
   .logo {
-    width: 180px; /* さらに小さく */
+    width: calc(100% - 50px);
+    max-width: 260px;
   }
 }
 
