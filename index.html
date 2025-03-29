@@ -211,7 +211,13 @@
           </div>
         </div>
         <div class="contact-form-container fade-in">
-          <form id="contactForm" class="contact-form">
+          <form id="contactForm" class="contact-form" action="https://formsubmit.co/tsuruta@marutto.jp" method="POST">
+            <input type="hidden" name="_subject" value="株式会社Sosinaへのお問い合わせ">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。担当者より折り返しご連絡いたします。">
+            <input type="hidden" name="_next" value="https://sosina.jp/#thanks">
+            <input type="text" name="_honey" style="display:none">
+            
             <div class="form-group">
               <label for="name">お名前</label>
               <input type="text" id="name" name="name" required>
