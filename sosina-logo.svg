@@ -1,34 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180">
-  <!-- 背景（透明） -->
-  <rect width="500" height="180" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
+  <!-- 背景 (透明) -->
+  <rect width="500" height="150" fill="transparent" />
   
-  <!-- ロゴマーク部分 -->
-  <g transform="translate(40, 90)">
-    <!-- 外側の円 -->
-    <circle cx="50" cy="0" r="50" fill="#3498db" />
+  <!-- 右側のロゴマーク -->
+  <g transform="translate(400, 75)">
+    <!-- カスタムWebアプリケーションを表すシンボル - 重なりあう要素 -->
+    <circle cx="0" cy="0" r="30" fill="#4a6bff" opacity="0.9" />
+    <circle cx="-15" cy="-15" r="20" fill="#34d399" opacity="0.8" />
+    <circle cx="15" cy="15" r="20" fill="#6b7280" opacity="0.7" />
     
-    <!-- 内側の図形（データフローや接続性を表現） -->
-    <path d="M50 -30 L70 0 L50 30 L30 0 Z" fill="#ffffff" />
-    <circle cx="50" cy="0" r="10" fill="#2ecc71" />
-    
-    <!-- 接続線 -->
-    <line x1="50" y1="-30" x2="50" y2="-50" stroke="#ffffff" stroke-width="4" />
-    <line x1="70" y1="0" x2="90" y2="0" stroke="#ffffff" stroke-width="4" />
-    <line x1="50" y1="30" x2="50" y2="50" stroke="#ffffff" stroke-width="4" />
-    <line x1="30" y1="0" x2="10" y2="0" stroke="#ffffff" stroke-width="4" />
+    <!-- アプリケーションのカスタマイズ性を表す図形 - 正しいプラス記号 -->
+    <rect x="-12" y="-12" width="24" height="24" rx="4" fill="white" opacity="0.9" />
+    <path d="M-6,0 H6 M0,-6 V6" stroke="#4a6bff" stroke-width="2" stroke-linecap="round" />
   </g>
   
-  <!-- 会社名（日本語） -->
-  <g transform="translate(150, 80)">
-    <text font-family="'Noto Sans JP', sans-serif" font-size="36" font-weight="700" fill="#2c3e50">
+  <!-- 左側のテキスト部分 -->
+  <g transform="translate(20, 0)">
+    <!-- 会社名 - 1段目（大きく） -->
+    <text x="0" y="70" font-family="'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#1f2937">
       株式会社Sosina
     </text>
-  </g>
-  
-  <!-- タグライン -->
-  <g transform="translate(155, 115)">
-    <text font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="400" fill="#7f8c8d">
-      あなただけのWebアプリケーション
+    
+    <!-- キャッチコピー - 2段目（小さく） -->
+    <text x="0" y="100" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="400" fill="#6b7280">
+      あなただけのWEBアプリケーション
     </text>
   </g>
+  
+  <!-- 会社名とロゴを繋ぐ線 -->
+  <line x1="20" y1="110" x2="350" y2="110" stroke="#e5e7eb" stroke-width="1" />
 </svg>
