@@ -1,257 +1,284 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社Sosina - あなただけのWEBアプリケーション</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome CDNを使用してアイコンを導入 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社Sosina - あなただけのWEBアプリケーション</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- ヘッダーセクション -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="sosina_logo.png" alt="Sosinaロゴ">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#service">サービス</a></li>
-                    <li><a href="#features">特徴</a></li>
-                    <li><a href="#process">導入の流れ</a></li>
-                    <li><a href="#contact" class="btn-contact">お問い合わせ</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  <!-- ヘッダーセクション -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="sosina_logo.png" alt="Sosinaロゴ">
         </div>
-    </header>
-
-    <!-- ヒーローセクション -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>あなただけの<span>WEB</span>アプリケーション</h1>
-                <p>迅速かつ安価に、あなたのビジネスに最適なシステムを</p>
-                <a href="#contact" class="btn-primary">無料相談はこちら</a>
-            </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#process">ご利用の流れ</a></li>
+            <li><a href="#company">会社概要</a></li>
+            <li><a href="#achievements">実績</a></li>
+            <li><a href="#contact" class="btn btn-primary">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <!-- サービスセクション -->
-    <section id="service">
-        <div class="container">
-            <h2>サービス概要</h2>
-            <div class="service-highlight">
-                <div class="highlight-item">
-                    <i class="fas fa-coins"></i>
-                    <h3>月額5,000円</h3>
-                    <p>従来のシステム開発より圧倒的にリーズナブル</p>
-                </div>
-                <div class="highlight-item">
-                    <i class="fas fa-calendar-check"></i>
-                    <h3>3営業日以内</h3>
-                    <p>迅速な納品で、すぐにビジネスに取り入れられます</p>
-                </div>
-                <div class="highlight-item">
-                    <i class="fas fa-thumbs-up"></i>
-                    <h3>試用期間2週間</h3>
-                    <p>実際に使ってみて、貴社に合うかどうか確認できます</p>
-                </div>
-            </div>
+  <!-- ヒーローセクション -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="main-title">あなただけの<br><span class="highlight">WEBアプリケーション</span></h1>
+        <p class="hero-subtitle">カスタマイズされた業務システムで、あなたのビジネスを加速させます</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary btn-large">無料相談はこちら</a>
+          <a href="#services" class="btn btn-secondary btn-large">サービスを見る</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 特徴セクション -->
-    <section id="features">
-        <div class="container">
-            <h2>Sosinaの特徴</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>スピード開発</h3>
-                    <p>ご要望を伺ってから3営業日以内に納品。急ぎのシステム構築にも対応します。</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>カスタマイズ</h3>
-                    <p>あなただけのWebアプリを提供。テンプレートではない、オーダーメイドのシステムです。</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>セキュリティ</h3>
-                    <p>Googleアカウントによる認証で、安全なアクセス管理が可能です。</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-sync-alt"></i>
-                    <h3>継続的サポート</h3>
-                    <p>月額制なので、常に最新の状態をキープ。必要に応じて機能追加も可能です。</p>
-                </div>
-            </div>
+  <!-- サービスセクション -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">選ばれる理由</h2>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <h3 class="service-title">月額5,000円</h3>
+          <p class="service-description">初期費用0円。低コストで高機能なWebアプリケーションを提供します。</p>
         </div>
-    </section>
-
-    <!-- 導入の流れセクション -->
-    <section id="process">
-        <div class="container">
-            <h2>導入の流れ</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>無料相談</h3>
-                        <p>お問い合わせフォームよりご連絡ください。貴社の課題やご要望をお聞かせください。</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>要件定義</h3>
-                        <p>ご要望をもとに、必要な機能や仕様を明確にします。</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>開発・納品</h3>
-                        <p>3営業日以内に開発を完了し、ご利用いただけるようにセットアップします。</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>試用期間</h3>
-                        <p>2週間の試用期間で、実際に使用感を確かめていただけます。</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>本契約</h3>
-                        <p>ご満足いただけましたら、月額契約へ移行します。</p>
-                    </div>
-                </div>
-            </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="service-title">3営業日以内に納品</h3>
+          <p class="service-description">迅速な開発で、あなたのビジネスニーズにすぐに対応します。</p>
         </div>
-    </section>
-
-    <!-- 利用条件セクション -->
-    <section id="conditions">
-        <div class="container">
-            <h2>利用条件</h2>
-            <div class="condition-note">
-                <i class="fab fa-google"></i>
-                <p><strong>Googleアカウントが必要</strong>です。既存のGoogleアカウントをご利用いただくか、新規作成をお願いします。</p>
-            </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="service-title">カスタマイズ可能</h3>
+          <p class="service-description">あなたのビジネスに合わせた最適なシステムを構築します。</p>
         </div>
-    </section>
-
-    <!-- お問い合わせセクション -->
-    <section id="contact">
-        <div class="container">
-            <h2>お問い合わせ</h2>
-            <p class="contact-lead">無料相談・お見積もりのご依頼は、以下のフォームよりお気軽にご連絡ください。</p>
-            
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="company">会社名 <span class="required">*</span></label>
-                    <input type="text" id="company" name="company" required>
-                    <div class="error-message" id="company-error"></div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="name">お名前 <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" required>
-                    <div class="error-message" id="name-error"></div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">メールアドレス <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                    <div class="error-message" id="email-error"></div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">電話番号</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    <div class="error-message" id="message-error"></div>
-                </div>
-                
-                <button type="submit" class="btn-primary">送信する</button>
-            </form>
-            
-            <div class="contact-direct">
-                <p>または、直接メールでのお問い合わせも受け付けております：</p>
-                <a href="mailto:tsuruta@marutto.jp" class="email-link"><i class="fas fa-envelope"></i> tsuruta@marutto.jp</a>
-            </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3 class="service-title">2週間の試用期間</h3>
+          <p class="service-description">導入前に実際の使用感を体験できます。リスクなしでお試しください。</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- GitHub Pages公開手順セクション -->
-    <section id="github-pages">
-        <div class="container">
-            <h2>GitHub Pagesでの公開手順</h2>
-            <div class="github-steps">
-                <div class="github-step">
-                    <h3>Step 1: GitHubアカウントとリポジトリの作成</h3>
-                    <p>GitHubのアカウントを作成し、新しいリポジトリを作成します。リポジトリ名は「username.github.io」とするとメインサイトになります。</p>
-                </div>
-                <div class="github-step">
-                    <h3>Step 2: リポジトリにファイルをアップロード</h3>
-                    <p>作成したHTMLファイル、CSSファイル、JavaScriptファイル、および画像をリポジトリにアップロードします。</p>
-                </div>
-                <div class="github-step">
-                    <h3>Step 3: GitHub Pagesの設定</h3>
-                    <p>リポジトリの「Settings」タブをクリックし、左側のメニューから「Pages」を選択します。「Source」セクションでブランチ（通常は「main」）を選択し、保存します。</p>
-                </div>
-                <div class="github-step">
-                    <h3>Step 4: サイトの公開</h3>
-                    <p>設定が完了すると、「Your site is published at https://username.github.io/」というメッセージが表示され、サイトが公開されます。</p>
-                </div>
-                <div class="github-step">
-                    <h3>Step 5: カスタムドメインの設定（オプション）</h3>
-                    <p>独自ドメインを使用したい場合は、「Custom domain」セクションにドメイン名を入力し、DNSプロバイダーでCNAMEレコードを設定します。</p>
-                </div>
-            </div>
-            <div class="github-reference">
-                <p>詳細な手順については、<a href="https://docs.github.com/ja/pages" target="_blank">GitHub Docsの公式ページ</a>をご参照ください。</p>
-            </div>
+  <!-- プロセスセクション -->
+  <section class="process" id="process">
+    <div class="container">
+      <h2 class="section-title">ご利用の流れ</h2>
+      <div class="process-steps">
+        <div class="process-step slide-in-left">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title">無料相談で要件定義</h3>
+            <p class="step-description">お客様のニーズをヒアリングし、最適なソリューションを提案します。</p>
+          </div>
         </div>
-    </section>
-
-    <!-- フッターセクション -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="sosina_logo.png" alt="Sosinaロゴ">
-                    <p>株式会社Sosina</p>
-                </div>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#service">サービス</a></li>
-                        <li><a href="#features">特徴</a></li>
-                        <li><a href="#process">導入の流れ</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <a href="mailto:tsuruta@marutto.jp"><i class="fas fa-envelope"></i> tsuruta@marutto.jp</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 株式会社Sosina. All Rights Reserved.</p>
-            </div>
+        <div class="process-step slide-in-left">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title">3営業日以内に納品</h3>
+            <p class="step-description">迅速な開発プロセスで、すぐに使えるアプリケーションをお届けします。</p>
+          </div>
         </div>
-    </footer>
+        <div class="process-step slide-in-left">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="step-title">2週間の試用期間</h3>
+            <p class="step-description">実際の業務で使用し、必要に応じて調整を行います。</p>
+          </div>
+        </div>
+        <div class="process-step slide-in-left">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3 class="step-title">継続利用</h3>
+            <p class="step-description">月額5,000円で、安心のサポートと共に継続してご利用いただけます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="process-note fade-in">
+        <div class="note-icon">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <p>※ Webアプリケーションのご利用には<span class="highlight">Googleアカウント</span>が必要です。</p>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- 会社概要セクション -->
+  <section class="company" id="company">
+    <div class="container">
+      <h2 class="section-title">会社概要</h2>
+      <div class="company-content">
+        <div class="company-info fade-in">
+          <table class="company-table">
+            <tr>
+              <th>会社名</th>
+              <td>株式会社Sosina</td>
+            </tr>
+            <tr>
+              <th>設立</th>
+              <td>2020年4月</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>鶴田 健太郎</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>Webアプリケーション開発・提供</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>東京都渋谷区</td>
+            </tr>
+          </table>
+        </div>
+        <div class="ceo-message fade-in">
+          <h3 class="message-title">代表挨拶</h3>
+          <div class="message-content">
+            <p>私たち株式会社Sosinaは、「テクノロジーで中小企業の業務改革を支援する」という理念のもと、誰もが使いやすい業務アプリケーションを提供しています。</p>
+            <p>大手企業だけでなく、中小企業や個人事業主の皆様にも、最先端のテクノロジーを活用した業務効率化の恩恵を受けていただきたいという思いから、月額5,000円という価格設定で高品質なWebアプリケーションをご提供しています。</p>
+            <p>お客様一人ひとりのニーズに合わせたカスタマイズと、迅速な開発・提供を実現し、ビジネスの成長をサポートいたします。</p>
+            <div class="ceo-sign">
+              <p>株式会社Sosina<br>代表取締役 鶴田 健太郎</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績セクション -->
+  <section class="achievements" id="achievements">
+    <div class="container">
+      <h2 class="section-title">導入実績</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card zoom-in">
+          <div class="achievement-content">
+            <h3 class="achievement-title">小売業向け在庫管理システム</h3>
+            <p class="achievement-description">複数店舗の在庫状況をリアルタイムで把握し、効率的な在庫管理を実現。</p>
+            <p class="achievement-result">導入後、在庫ロスが30%減少</p>
+          </div>
+        </div>
+        <div class="achievement-card zoom-in">
+          <div class="achievement-content">
+            <h3 class="achievement-title">建設業向け工程管理アプリ</h3>
+            <p class="achievement-description">現場の進捗状況を一元管理し、関係者間の情報共有を円滑化。</p>
+            <p class="achievement-result">プロジェクト管理時間が週5時間削減</p>
+          </div>
+        </div>
+        <div class="achievement-card zoom-in">
+          <div class="achievement-content">
+            <h3 class="achievement-title">サービス業向け予約管理システム</h3>
+            <p class="achievement-description">オンライン予約とスタッフのスケジュール管理を統合し、業務効率化を実現。</p>
+            <p class="achievement-result">顧客満足度20%向上、予約ミス0件</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせセクション -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">お問い合わせ</h2>
+      <div class="contact-content">
+        <div class="contact-text fade-in">
+          <p>Webアプリケーション導入に関するご相談やお問い合わせは、以下のメールアドレスまでお気軽にご連絡ください。</p>
+          <p>無料相談も受け付けておりますので、まずはお気軽にお問い合わせください。</p>
+          <div class="contact-email">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:tsuruta@marutto.jp">tsuruta@marutto.jp</a>
+          </div>
+        </div>
+        <div class="contact-form-container fade-in">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">お名前</label>
+              <input type="text" id="name" name="name" required>
+              <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="form-group">
+              <label for="company">会社名</label>
+              <input type="text" id="company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス</label>
+              <input type="email" id="email" name="email" required>
+              <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+              <label for="message">お問い合わせ内容</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <div class="error-message" id="messageError"></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large">送信する</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッターセクション -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="sosina_logo.png" alt="Sosinaロゴ">
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#process">ご利用の流れ</a></li>
+            <li><a href="#company">会社概要</a></li>
+            <li><a href="#achievements">実績</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <p>株式会社Sosina</p>
+          <p>東京都渋谷区</p>
+          <p>Email: <a href="mailto:tsuruta@marutto.jp">tsuruta@marutto.jp</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 株式会社Sosina All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- トップに戻るボタン -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- スクリプト -->
+  <script src="script.js"></script>
 </body>
 </html>
