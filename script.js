@@ -1,139 +1,122 @@
+// DOM要素の読み込み完了後に実行
 document.addEventListener('DOMContentLoaded', function() {
-    // モバイルメニュートグル
-    const menuBtn = document.getElementById('menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    // 変数の定義
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+    const header = document.querySelector('header');
+    const contactForm = document.getElementById('contact-form');
     
-    if (menuBtn) {
-        menuBtn.addEventListener('click', function() {
-            // メニューボタンとナビゲーションリンクにactiveクラスを切り替える
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
+    // メニュートグルの設定 - モバイル表示時のハンバーガーメニュー
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
         });
     }
     
-    // アンカーリンクのスムーススクロール
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // モバイルメニューが開いている場合は閉じる
-            if (menuBtn && menuBtn.classList.contains('active')) {
-                menuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-            
-            // 対象要素へスクロール
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, // ヘッダーの高さ分を調整
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // スクロール時のヘッダースタイル変更 - スクロールするとヘッダーが小さくなる
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.style.padding = '10px 0';
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.padding = '20px 0';
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+        }
     });
     
-    // スクロール時の要素アニメーション
-    const animateElements = document.querySelectorAll('.service-card, .feature, .process-step');
-    
-    function checkVisibility() {
-        animateElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            // 要素が画面内に入ったらアニメーションクラスを追加
-            if (elementTop < windowHeight - 100) {
-                element.classList.add('animate-fadeInUp');
-            }
-        });
-    }
-    
-    // ページ読み込み時に初期チェック
-    checkVisibility();
-    
-    // スクロール時にチェック
-    window.addEventListener('scroll', checkVisibility);
-    
-    // フォームバリデーション
-    const contactForm = document.getElementById('contactForm');
-    
+    // コンタクトフォームのバリデーション
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // フォームのフィールド
+            const company = document.getElementById('company');
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+            
+            // エラーメッセージ要素
+            const companyError = document.getElementById('company-error');
+            const nameError = document.getElementById('name-error');
+            const emailError = document.getElementById('email-error');
+            const messageError = document.getElementById('message-error');
+            
+            // バリデーションフラグ
             let isValid = true;
             
-            // お名前のバリデーション
-            const nameInput = document.getElementById('name');
-            const nameError = document.getElementById('nameError');
+            // すべてのエラーメッセージをリセット
+            const errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(error => {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
             
-            if (!nameInput.value.trim()) {
-                showError(nameInput, nameError, 'お名前を入力してください');
+            // 会社名のバリデーション
+            if (company.value.trim() === '') {
+                companyError.textContent = '会社名を入力してください';
+                companyError.style.display = 'block';
                 isValid = false;
-            } else {
-                hideError(nameInput, nameError);
             }
             
-            // メールアドレスのバリデーション
-            const emailInput = document.getElementById('email');
-            const emailError = document.getElementById('emailError');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (!emailInput.value.trim()) {
-                showError(emailInput, emailError, 'メールアドレスを入力してください');
+            // 名前のバリデーション
+            if (name.value.trim() === '') {
+                nameError.textContent = 'お名前を入力してください';
+                nameError.style.display = 'block';
                 isValid = false;
-            } else if (!emailPattern.test(emailInput.value)) {
-                showError(emailInput, emailError, '有効なメールアドレスを入力してください');
-                isValid = false;
-            } else {
-                hideError(emailInput, emailError);
             }
             
-            // お問い合わせ内容のバリデーション
-            const messageInput = document.getElementById('message');
-            const messageError = document.getElementById('messageError');
-            
-            if (!messageInput.value.trim()) {
-                showError(messageInput, messageError, 'お問い合わせ内容を入力してください');
+            // メールのバリデーション
+            if (email.value.trim() === '') {
+                emailError.textContent = 'メールアドレスを入力してください';
+                emailError.style.display = 'block';
                 isValid = false;
-            } else {
-                hideError(messageInput, messageError);
+            } else if (!isValidEmail(email.value)) {
+                emailError.textContent = '有効なメールアドレスを入力してください';
+                emailError.style.display = 'block';
+                isValid = false;
             }
             
-            // バリデーション成功時、フォームを送信
+            // メッセージのバリデーション
+            if (message.value.trim() === '') {
+                messageError.textContent = 'お問い合わせ内容を入力してください';
+                messageError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // フォームが有効な場合の処理
             if (isValid) {
-                // フォームデータの準備
-                const formData = {
-                    name: nameInput.value.trim(),
-                    email: emailInput.value.trim(),
-                    company: document.getElementById('company').value.trim(),
-                    message: messageInput.value.trim()
-                };
-                
-                // メール送信（デモ用にアラートを表示）
-                // 実際の環境では、FormspreeやNetlify Formsなどの外部サービスを利用するか、
-                // サーバーサイドのプログラムでメール送信処理を実装します
-                alert('フォームが送信されました。実際の実装では、ここでデータが' + 
-                      'tsuruta@marutto.jp' + 'に送信されます。');
-                
-                // フォームをリセット
+                // 実際にはここでメールを送信するか、APIにデータを送信する処理を行う
+                // ここではアラートで送信成功を表示
+                alert('お問い合わせありがとうございます。担当者より返信いたします。');
                 contactForm.reset();
             }
         });
     }
     
-    // フォームバリデーション用ヘルパー関数
-    function showError(input, errorElement, message) {
-        input.parentElement.classList.add('error');
-        errorElement.textContent = message;
-        errorElement.classList.add('show');
+    // メールアドレスのバリデーション関数
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
     
-    function hideError(input, errorElement) {
-        input.parentElement.classList.remove('error');
-        errorElement.textContent = '';
-        errorElement.classList.remove('show');
-    }
+    // スクロールアニメーション - 要素が画面に入ったときにフェードインする
+    const elements = document.querySelectorAll('.highlight-item, .feature-card, .step, .github-step');
+    
+    // Intersection Observerの設定
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    // 監視対象の要素を設定
+    elements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(element);
+    });
 });
