@@ -2,31 +2,31 @@
   <!-- 背景 (透明) -->
   <rect width="500" height="150" fill="transparent" />
   
-  <!-- 右側のロゴマーク - 少し左に移動 -->
-  <g transform="translate(380, 75)">
-    <!-- カスタムWebアプリケーションを表すシンボル -->
+  <!-- 右側のロゴマーク - 右端に移動 -->
+  <g transform="translate(450, 75)">
+    <!-- カスタムWebアプリケーションを表すシンボル - 重なりあう要素 -->
     <circle cx="0" cy="0" r="30" fill="#4a6bff" opacity="0.9" />
     <circle cx="-15" cy="-15" r="20" fill="#34d399" opacity="0.8" />
     <circle cx="15" cy="15" r="20" fill="#6b7280" opacity="0.7" />
     
-    <!-- アプリケーションのカスタマイズ性を表す図形 -->
+    <!-- アプリケーションのカスタマイズ性を表す図形 - 正しいプラス記号 -->
     <rect x="-12" y="-12" width="24" height="24" rx="4" fill="white" opacity="0.9" />
     <path d="M-6,0 H6 M0,-6 V6" stroke="#4a6bff" stroke-width="2" stroke-linecap="round" />
   </g>
   
-  <!-- 左側のテキスト部分 - 左側の余白を減らし、文字を大きく -->
-  <g transform="translate(10, 0)">
-    <!-- 会社名 - より大きくして左寄せ -->
-    <text x="0" y="65" font-family="'Noto Sans JP', sans-serif" font-size="42" font-weight="700" fill="#1f2937">
+  <!-- 左側のテキスト部分 - 文字サイズをさらに大きく -->
+  <g transform="translate(20, 0)">
+    <!-- 会社名 - 1段目（大きく） - 文字サイズを44pxに拡大 -->
+    <text x="0" y="65" font-family="'Noto Sans JP', sans-serif" font-size="44" font-weight="700" fill="#1f2937">
       株式会社Sosina
     </text>
     
-    <!-- キャッチコピー - より大きく -->
+    <!-- キャッチコピー - 2段目（小さく） - 文字サイズを24pxに拡大 -->
     <text x="0" y="105" font-family="'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#6b7280">
       あなただけのWEBアプリケーション
     </text>
   </g>
   
-  <!-- 会社名とロゴを繋ぐ線 - 拡張 -->
-  <line x1="10" y1="115" x2="330" y2="115" stroke="#e5e7eb" stroke-width="1" />
+  <!-- 会社名とロゴを繋ぐ線 - 長さを延長 -->
+  <line x1="20" y1="115" x2="400" y2="115" stroke="#e5e7eb" stroke-width="1" />
 </svg>
