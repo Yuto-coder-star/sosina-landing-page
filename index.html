@@ -211,12 +211,14 @@
           </div>
         </div>
         <div class="contact-form-container fade-in">
-          <!-- ここからフォーム修正部分 -->
+          <!-- ここからフォーム部分 -->
           <form id="contactForm" class="contact-form" action="https://formsubmit.co/tsuruta@marutto.jp" method="POST">
             <input type="hidden" name="_subject" value="株式会社Sosinaへのお問い合わせ">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_autoresponse" value="株式会社Sosinaへのお問い合わせありがとうございます。このメールは自動返信メールです。担当者が内容を確認次第、折り返しご連絡いたします。何かご不明点がございましたら、お気軽にお問い合わせください。">
             <input type="hidden" name="_next" value="https://sosina.jp/#thanks">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_replyto" value="%email%">
+            <input type="hidden" name="_autoresponse_message" value="株式会社Sosinaへのお問い合わせありがとうございます。担当者が内容を確認次第、折り返しご連絡いたします。">
             
             <div class="form-group">
               <label for="name">お名前</label>
@@ -239,7 +241,7 @@
             </div>
             <button type="submit" class="btn btn-primary btn-large">送信する</button>
           </form>
-          <!-- ここまでフォーム修正部分 -->
+          <!-- ここまでフォーム部分 -->
         </div>
       </div>
     </div>
