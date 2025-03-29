@@ -103,6 +103,29 @@ window.addEventListener('load', () => {
       }
     });
   }, 100);
+  
+  // URLに #thanks がある場合は、サンクスメッセージを表示
+  if (window.location.hash === '#thanks' && contactForm) {
+    contactForm.innerHTML = `
+      <div class="form-success">
+        <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: var(--spacing-md);"></i>
+        <h3>送信完了</h3>
+        <p>お問い合わせありがとうございます。担当者より折り返しご連絡いたします。</p>
+      </div>
+    `;
+    
+    // お問い合わせセクションへスクロール
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const headerHeight = header.offsetHeight;
+      const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
 });
 
 // トップに戻るボタンクリック
