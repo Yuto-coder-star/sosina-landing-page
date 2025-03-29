@@ -103,32 +103,6 @@ window.addEventListener('load', () => {
       }
     });
   }, 100);
-  
-  // URLに #thanks がある場合は、サンクスメッセージを表示
-  if (window.location.hash === '#thanks' && contactForm) {
-    contactForm.innerHTML = `
-      <div class="form-success">
-        <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: var(--spacing-md);"></i>
-        <h3>送信完了</h3>
-        <p>お問い合わせありがとうございます。担当者より折り返しご連絡いたします。</p>
-      </div>
-    `;
-    
-    // URLからハッシュを削除
-    window.history.replaceState(null, null, window.location.pathname + window.location.search);
-    
-    // お問い合わせセクションへスクロール
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      const headerHeight = header.offsetHeight;
-      const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  }
 });
 
 // トップに戻るボタンクリック
@@ -207,13 +181,10 @@ if (contactForm) {
       clearError('message');
     }
     
-    // 検証に失敗した場合はここで処理を中断
-    if (!isValid) {
-      return false;
+    // デバッグ用コンソール出力
+    if (isValid) {
+      console.log('フォームは有効です。FormSubmitに送信します...');
     }
-    
-    // 検証に成功した場合はFormSubmitにフォームが送信される
-    // e.preventDefault()を呼び出さないのでフォームは通常通り送信される
   });
   
   // 入力時のエラークリア
