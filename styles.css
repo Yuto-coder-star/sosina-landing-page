@@ -722,8 +722,20 @@ img {
     grid-template-columns: 1fr;
   }
   
+  /* ロゴサイズの調整 */
+  .logo {
+    width: 200px; /* スマホ表示時は小さくする */
+  }
+  
+  /* ヘッダーの高さを確保 */
+  .header-content {
+    padding: var(--spacing-sm) 0;
+    min-height: 70px; /* 最低限の高さを確保 */
+  }
+  
+  /* ヒーローセクションのパディングを調整（以前の定義を上書き） */
   .hero {
-    padding-top: calc(70px + var(--spacing-xl));
+    padding-top: calc(80px + var(--spacing-xl)); /* ヘッダー高さ + 余白 */
   }
 }
 
@@ -743,6 +755,11 @@ img {
     height: 40px;
     bottom: 20px;
     right: 20px;
+  }
+  
+  /* さらに小さい画面向けのロゴサイズ調整 */
+  .logo {
+    width: 180px; /* さらに小さく */
   }
 }
 
