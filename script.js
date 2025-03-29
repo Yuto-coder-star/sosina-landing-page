@@ -1,183 +1,139 @@
-/**
- * 株式会社Sosina ランディングページ JavaScript
- */
-
 document.addEventListener('DOMContentLoaded', function() {
+    // モバイルメニュートグル
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.querySelector('.nav-links');
     
-    // 変数の定義
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const header = document.querySelector('.header');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const contactForm = document.getElementById('contactForm');
-    const privacyPolicyLink = document.getElementById('privacy-policy-link');
-    const privacyModal = document.getElementById('privacy-modal');
-    const closeModalBtn = document.querySelector('.close');
-    
-    // モバイルメニューの開閉
-    mobileMenuBtn.addEventListener('click', function() {
-        document.body.classList.toggle('mobile-menu-open');
-        
-        // ハンバーガーメニューのアニメーション
-        const spans = this.querySelectorAll('span');
-        spans.forEach(span => {
-            span.classList.toggle('active');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', function() {
+            // メニューボタンとナビゲーションリンクにactiveクラスを切り替える
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-    });
+    }
     
-    // スムーススクロール
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // モバイルメニューが開いている場合は閉じる
-            if (document.body.classList.contains('mobile-menu-open')) {
-                document.body.classList.remove('mobile-menu-open');
-            }
-            
-            const targetId = this.getAttribute('href');
-            
-            // 通常のリンク（#で始まらないもの）は通常の挙動
-            if (!targetId.startsWith('#')) return;
-            
+    // アンカーリンクのスムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // モバイルメニューが開いている場合は閉じる
+            if (menuBtn && menuBtn.classList.contains('active')) {
+                menuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+            
+            // 対象要素へスクロール
+            const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
+            
             if (targetElement) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
                 window.scrollTo({
-                    top: targetPosition,
+                    top: targetElement.offsetTop - 80, // ヘッダーの高さ分を調整
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // プライバシーポリシーモーダル
-    privacyPolicyLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        privacyModal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // スクロール防止
-    });
+    // スクロール時の要素アニメーション
+    const animateElements = document.querySelectorAll('.service-card, .feature, .process-step');
     
-    closeModalBtn.addEventListener('click', function() {
-        privacyModal.style.display = 'none';
-        document.body.style.overflow = ''; // スクロール復活
-    });
-    
-    window.addEventListener('click', function(e) {
-        if (e.target === privacyModal) {
-            privacyModal.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // フォームのバリデーションと送信処理
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // 簡易バリデーション
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const privacy = document.getElementById('privacy').checked;
-        
-        let isValid = true;
-        let errorMessage = '';
-        
-        if (name === '') {
-            isValid = false;
-            errorMessage += 'お名前を入力してください。\n';
-        }
-        
-        if (email === '') {
-            isValid = false;
-            errorMessage += 'メールアドレスを入力してください。\n';
-        } else if (!isValidEmail(email)) {
-            isValid = false;
-            errorMessage += '有効なメールアドレスを入力してください。\n';
-        }
-        
-        if (message === '') {
-            isValid = false;
-            errorMessage += 'お問い合わせ内容を入力してください。\n';
-        }
-        
-        if (!privacy) {
-            isValid = false;
-            errorMessage += 'プライバシーポリシーに同意してください。\n';
-        }
-        
-        if (!isValid) {
-            alert(errorMessage);
-            return;
-        }
-        
-        // メール送信（mailto:スキーム）
-        const phone = document.getElementById('phone').value.trim();
-        const mailtoLink = `mailto:tsuruta@marutto.jp?subject=Sosinaお問い合わせ（${name}様）&body=お名前: ${name}%0D%0Aメールアドレス: ${email}%0D%0A電話番号: ${phone}%0D%0A%0D%0A${message}`;
-        
-        window.location.href = mailtoLink;
-        
-        // フォームのリセット
-        this.reset();
-        
-        // 送信完了メッセージ
-        alert('お問い合わせありがとうございます。メーラーが起動します。');
-    });
-    
-    // メールアドレスのバリデーション関数
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    // スクロール時のヘッダースタイル変更
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Formspree利用の場合（コメントアウト状態）
-    /*
-    const formspreeForm = document.getElementById('formspreeForm');
-    if (formspreeForm) {
-        formspreeForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    function checkVisibility() {
+        animateElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
             
-            // FormspreeのエンドポイントURL（実際に使う場合は自分のフォームIDに置き換え）
-            const formspreeUrl = 'https://formspree.io/f/xxxxxxxxxxxx';
-            
-            // フォームデータの取得
-            const formData = new FormData(this);
-            
-            // Formspreeに送信
-            fetch(formspreeUrl, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('ネットワークエラーが発生しました');
-            })
-            .then(data => {
-                // 送信成功時の処理
-                alert('お問い合わせありがとうございます。担当者より連絡いたします。');
-                formspreeForm.reset();
-            })
-            .catch(error => {
-                // エラー処理
-                alert('送信に失敗しました。時間をおいて再度お試しください。');
-                console.error('Error:', error);
-            });
+            // 要素が画面内に入ったらアニメーションクラスを追加
+            if (elementTop < windowHeight - 100) {
+                element.classList.add('animate-fadeInUp');
+            }
         });
     }
-    */
+    
+    // ページ読み込み時に初期チェック
+    checkVisibility();
+    
+    // スクロール時にチェック
+    window.addEventListener('scroll', checkVisibility);
+    
+    // フォームバリデーション
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // お名前のバリデーション
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            
+            if (!nameInput.value.trim()) {
+                showError(nameInput, nameError, 'お名前を入力してください');
+                isValid = false;
+            } else {
+                hideError(nameInput, nameError);
+            }
+            
+            // メールアドレスのバリデーション
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailInput.value.trim()) {
+                showError(emailInput, emailError, 'メールアドレスを入力してください');
+                isValid = false;
+            } else if (!emailPattern.test(emailInput.value)) {
+                showError(emailInput, emailError, '有効なメールアドレスを入力してください');
+                isValid = false;
+            } else {
+                hideError(emailInput, emailError);
+            }
+            
+            // お問い合わせ内容のバリデーション
+            const messageInput = document.getElementById('message');
+            const messageError = document.getElementById('messageError');
+            
+            if (!messageInput.value.trim()) {
+                showError(messageInput, messageError, 'お問い合わせ内容を入力してください');
+                isValid = false;
+            } else {
+                hideError(messageInput, messageError);
+            }
+            
+            // バリデーション成功時、フォームを送信
+            if (isValid) {
+                // フォームデータの準備
+                const formData = {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    company: document.getElementById('company').value.trim(),
+                    message: messageInput.value.trim()
+                };
+                
+                // メール送信（デモ用にアラートを表示）
+                // 実際の環境では、FormspreeやNetlify Formsなどの外部サービスを利用するか、
+                // サーバーサイドのプログラムでメール送信処理を実装します
+                alert('フォームが送信されました。実際の実装では、ここでデータが' + 
+                      'tsuruta@marutto.jp' + 'に送信されます。');
+                
+                // フォームをリセット
+                contactForm.reset();
+            }
+        });
+    }
+    
+    // フォームバリデーション用ヘルパー関数
+    function showError(input, errorElement, message) {
+        input.parentElement.classList.add('error');
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+    }
+    
+    function hideError(input, errorElement) {
+        input.parentElement.classList.remove('error');
+        errorElement.textContent = '';
+        errorElement.classList.remove('show');
+    }
 });
