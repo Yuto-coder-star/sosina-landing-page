@@ -103,6 +103,32 @@ window.addEventListener('load', () => {
       }
     });
   }, 100);
+  
+  // URLに #thanks がある場合は、サンクスメッセージを表示
+  if (window.location.hash === '#thanks' && contactForm) {
+    contactForm.innerHTML = `
+      <div class="form-success">
+        <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: var(--spacing-md);"></i>
+        <h3>送信完了</h3>
+        <p>お問い合わせありがとうございます。担当者より折り返しご連絡いたします。</p>
+      </div>
+    `;
+    
+    // URLからハッシュを削除
+    window.history.replaceState(null, null, window.location.pathname + window.location.search);
+    
+    // お問い合わせセクションへスクロール
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const headerHeight = header.offsetHeight;
+      const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
 });
 
 // トップに戻るボタンクリック
@@ -145,13 +171,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // お問い合わせフォームの検証
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
     let isValid = true;
     
     // 名前の検証
     const nameInput = document.getElementById('name');
     if (!nameInput.value.trim()) {
+      e.preventDefault(); // フォーム送信を停止
       showError('name', 'お名前を入力してください');
       isValid = false;
     } else {
@@ -161,9 +186,11 @@ if (contactForm) {
     // メールアドレスの検証
     const emailInput = document.getElementById('email');
     if (!emailInput.value.trim()) {
+      e.preventDefault(); // フォーム送信を停止
       showError('email', 'メールアドレスを入力してください');
       isValid = false;
     } else if (!isValidEmail(emailInput.value.trim())) {
+      e.preventDefault(); // フォーム送信を停止
       showError('email', '有効なメールアドレスを入力してください');
       isValid = false;
     } else {
@@ -173,26 +200,20 @@ if (contactForm) {
     // メッセージの検証
     const messageInput = document.getElementById('message');
     if (!messageInput.value.trim()) {
+      e.preventDefault(); // フォーム送信を停止
       showError('message', 'お問い合わせ内容を入力してください');
       isValid = false;
     } else {
       clearError('message');
     }
     
-    // 有効な場合、フォーム送信をシミュレート（実際の実装では、サーバーにフォームを送信）
-    if (isValid) {
-      // 成功メッセージを表示
-      contactForm.innerHTML = `
-        <div class="form-success">
-          <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: var(--spacing-md);"></i>
-          <h3>送信完了</h3>
-          <p>お問い合わせありがとうございます。担当者より折り返しご連絡いたします。</p>
-        </div>
-      `;
-      
-      // 実際の実装では、ここでサーバーにフォームデータを送信
-      console.log('フォームが正常に送信されました');
+    // 検証に失敗した場合はここで処理を中断
+    if (!isValid) {
+      return false;
     }
+    
+    // 検証に成功した場合はFormSubmitにフォームが送信される
+    // e.preventDefault()を呼び出さないのでフォームは通常通り送信される
   });
   
   // 入力時のエラークリア
