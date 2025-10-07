@@ -522,6 +522,199 @@ img {
   margin-top: var(--spacing-xs); /* Add a bit of space above the result */
 }
 
+/* ========== チャットボットセクション ========== */
+.chatbot {
+  padding: var(--spacing-3xl) 0;
+}
+
+.chatbot-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+}
+
+.chatbot-info {
+  flex: 1 1 320px;
+}
+
+.chatbot-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+
+.chatbot-benefits {
+  margin-top: var(--spacing-md);
+  display: grid;
+  gap: var(--spacing-xs);
+}
+
+.chatbot-benefits li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-light);
+}
+
+.chatbot-benefits i {
+  color: var(--secondary-color);
+}
+
+.chatbot-panel {
+  flex: 1 1 420px;
+  background: linear-gradient(135deg, rgba(74, 107, 255, 0.1), rgba(52, 211, 153, 0.15));
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.chatbot-api-key label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.api-key-input-group {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.api-key-input-group input {
+  flex: 1 1 200px;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+  font-size: var(--font-size-md);
+}
+
+.api-key-input-group input:focus {
+  outline: 3px solid rgba(74, 107, 255, 0.25);
+  border-color: var(--primary-color);
+}
+
+.api-key-note {
+  font-size: var(--font-size-sm);
+  color: var(--text-lighter);
+  margin-top: 0.25rem;
+}
+
+.chatbot-window {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  min-height: 420px;
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-right: 0.25rem;
+}
+
+.chatbot-message {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.chatbot-message.assistant {
+  justify-content: flex-start;
+}
+
+.chatbot-message.user {
+  justify-content: flex-end;
+}
+
+.chatbot-bubble {
+  max-width: 85%;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background-color: var(--gray-100);
+  color: var(--text-dark);
+  box-shadow: var(--box-shadow);
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.chatbot-message.assistant .chatbot-bubble {
+  background-color: var(--white);
+  border: 1px solid rgba(74, 107, 255, 0.15);
+}
+
+.chatbot-message.user .chatbot-bubble {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--white);
+}
+
+.chatbot-status {
+  min-height: 1.2rem;
+  font-size: var(--font-size-sm);
+  color: var(--text-lighter);
+}
+
+.chatbot-status.error {
+  color: #ef4444;
+}
+
+.chatbot-status.success {
+  color: var(--secondary-color);
+}
+
+.chatbot-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.chatbot-form textarea {
+  resize: vertical;
+  min-height: 70px;
+  max-height: 200px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-md);
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+.chatbot-form textarea:focus {
+  outline: 3px solid rgba(74, 107, 255, 0.25);
+  border-color: var(--primary-color);
+}
+
+.chatbot-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+}
+
+.btn-compact {
+  padding: 0.5rem 0.9rem;
+  font-size: var(--font-size-sm);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 /* ========== お問い合わせセクション ========== */
 .contact {
   padding: var(--spacing-3xl) 0;
@@ -758,7 +951,23 @@ img {
   .achievements-grid {
     grid-template-columns: 1fr;
   }
-  
+
+  .chatbot-panel {
+    padding: var(--spacing-md);
+  }
+
+  .chatbot-window {
+    min-height: 360px;
+  }
+
+  .chatbot-actions {
+    flex-direction: column;
+  }
+
+  .chatbot-actions .btn-compact {
+    width: 100%;
+  }
+
   /* ロゴを画面幅いっぱいに設定（ハンバーガーメニュー用のスペースを確保） */
   .logo {
     width: calc(100% - 60px);
@@ -783,7 +992,21 @@ img {
     --font-size-3xl: 1.5rem;
     --spacing-3xl: 3rem;
   }
-  
+
+  .api-key-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .api-key-input-group input,
+  .api-key-input-group .btn-compact {
+    width: 100%;
+  }
+
+  .chatbot-window {
+    min-height: 320px;
+  }
+
   .contact-form {
     padding: var(--spacing-md);
   }

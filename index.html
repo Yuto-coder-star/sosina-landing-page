@@ -206,6 +206,51 @@
     </div>
   </section>
 
+  <!-- チャットボットセクション -->
+  <section class="chatbot" id="chatbot">
+    <div class="container">
+      <h2 class="section-title">AIチャットアシスタント</h2>
+      <div class="chatbot-content">
+        <div class="chatbot-info fade-in">
+          <h3 class="chatbot-subtitle">高速応答で業務の疑問を即解決</h3>
+          <p>OpenAIの最新APIを活用した高性能チャットボットです。業務アプリの企画、要件定義、運用に関するご相談をその場でサポートし、Sosinaの導入検討を後押しします。</p>
+          <ul class="chatbot-benefits">
+            <li><i class="fas fa-bolt"></i> GPT-4o miniによる高速レスポンス</li>
+            <li><i class="fas fa-shield-alt"></i> APIキーはブラウザ内でのみ保存・利用</li>
+            <li><i class="fas fa-language"></i> ビジネス日本語・英語の両方に対応</li>
+          </ul>
+        </div>
+        <div class="chatbot-panel fade-in">
+          <div class="chatbot-api-key" aria-live="polite">
+            <label for="openaiApiKey">OpenAI APIキー</label>
+            <div class="api-key-input-group">
+              <input type="password" id="openaiApiKey" placeholder="sk-..." autocomplete="off">
+              <button type="button" class="btn btn-secondary btn-compact" id="toggleApiKeyVisibility" aria-pressed="false" aria-label="APIキーの表示を切り替え">表示</button>
+              <button type="button" class="btn btn-primary btn-compact" id="saveApiKey">保存</button>
+            </div>
+            <p class="api-key-note">※ キーはこのブラウザのローカルに暗号化せず保存されます。共有端末では利用後に削除してください。</p>
+          </div>
+          <div class="chatbot-window" role="region" aria-live="polite" aria-label="チャットボットとの会話">
+            <div class="chatbot-messages" id="chatbotMessages">
+              <div class="chatbot-message assistant">
+                <div class="chatbot-bubble">こんにちは。株式会社SosinaのAIアシスタントです。業務アプリの活用方法や機能の相談など、お気軽にご質問ください。</div>
+              </div>
+            </div>
+            <div class="chatbot-status" id="chatbotStatus" role="status" aria-live="polite"></div>
+            <form id="chatForm" class="chatbot-form" novalidate>
+              <label for="chatInput" class="visually-hidden">メッセージを入力</label>
+              <textarea id="chatInput" rows="2" placeholder="例: 見積作成を自動化するワークフローを作りたい" required></textarea>
+              <div class="chatbot-actions">
+                <button type="button" class="btn btn-secondary btn-compact" id="clearChat">履歴をリセット</button>
+                <button type="submit" class="btn btn-primary btn-compact" id="sendChat">送信</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- お問い合わせセクション -->
   <section class="contact" id="contact">
     <div class="container">
